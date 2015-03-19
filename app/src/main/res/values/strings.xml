@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RemoteContentsFetcher</string>
+    <string name="action_settings">Settings</string>
+    <string name="contents_url">https://dl.dropboxusercontent.com/u/746330/facts.json</string>
+    <string name="title_loading">Loading......</string>
+
+</resources>
