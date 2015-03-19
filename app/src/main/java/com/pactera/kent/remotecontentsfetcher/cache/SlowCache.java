@@ -35,6 +35,36 @@ public class SlowCache implements ICache{
     }
 
     @Override
+    public boolean put(String key, byte[] val) {
+        FileOutputStream fileOutputStream = null;
+
+        try {
+            File cacheFile = new File(mCacheDataLocationPath + File.separator + URLEncoder.encode(key,"UTF-8"));
+
+            if(cacheFile.exists()){
+                Log.w(TAG, "obtainBitmapDataInCache, Cache file Existed, key:" + URLEncoder.encode(key,"UTF-8") );
+                return true;
+            }
+
+            //Save byte[] object to FS
+            fileOutputStream = new FileOutputStream(cacheFile);
+            fileOutputStream.write(val);
+        }catch(Exception e){
+            Log.e(TAG, "put, Failed");
+            e.printStackTrace();
+            return false;
+        }finally{
+            try {
+                fileOutputStream.close();
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+
+        return true;
+    }
+
+    @Override
     public boolean put(String key, Bitmap val) {
         FileOutputStream fileOutputStream = null;
 

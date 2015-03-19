@@ -8,6 +8,18 @@ import android.graphics.Bitmap;
 public interface ICache {
 
     /**
+     * Insert the byte[] for into Cache with a specified key.
+     *
+     * @param key
+     *            the key.
+     * @param val
+     *            the value.
+     * @return
+     *            TRUE: if inserted successfully. FALSE otherwise
+     */
+    public boolean put(String key, byte[] val);
+
+    /**
      * Insert the Bitmap into Cache with a specified key.
      *
      * @param key
